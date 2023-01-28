@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>container-dryer</title>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="dashstyle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium Web">
+    <script src="script.js"></script>
+    <script>
+        var firebaseRef = firebase.database().ref().child("stae");
+        firebaseRef.set(0);
+        var firebaseRef = firebase.database().ref().child("process");
+        firebaseRef.set(0);
+    </script>
+</head>
+
+<body>
+    <div class="container-sm">
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6 head">Sterilization Dish Dryer</div>
+            <div class="col-sm-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8 status"><span id="showstatus"></span></div>
+            <div class="col-sm-2"></div>
+        </div>
+        <script src="statusdisplay.js"></script>
+        <br><br>
+        <div class="row">
+            <div class="col-sm-5 sate show"><img src="img/H.png" alt="" class="icon"> Humidity = <span
+                    id="hmd">Humidity</span></div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-5 sate show"><img src="img/temperature.png" alt="" class="icon"> Temperature = <span
+                    id="tmp">Temperature</span></div>
+        </div>
+        <div class="row"> <!--mode-->
+            <div class="col-sm-4">
+                <button type="button" data-bs-toggle="modal" data-bs-target="#myModal1" onclick="c_sess_1()">
+                    <img src="img/Dish Drying.png" alt="">
+                </button>
+            </div>
+            <div class="col-sm-4">
+                <button type="button" data-bs-toggle="modal" data-bs-target="#myModal2" onclick="c_sess_2()">
+                    <img src="img/qick.jpg" alt="">
+                </button>
+            </div>
+            <div class="col-sm-4">
+                <button type="button" data-bs-toggle="modal" data-bs-target="#myModal3" onclick="c_sess_3()">
+                    <img src="img/full.png" alt="">
+                </button>
+            </div>
+        </div>
+        <div class="modal" id="myModal1"> <!--mode1-->
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">DISH DRYING</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="rm()"></button>
+                    </div>
+                    <div class="modal-body">
+                        <br><br><br>
+                        <div class="row">
+                            <script>
+                                function rm() {
+                                    var firebaseRef = firebase.database().ref().child("stae");
+                                    firebaseRef.set(0);
+                                    var firebaseRef = firebase.database().ref().child("process");
+                                    firebaseRef.set(0);
+                                }
+                                function c_sess_1() {
+                                    var firebaseRef = firebase.database().ref().child("stae");
+                                    firebaseRef.set(1);
+                                    var firebaseRef = firebase.database().ref().child("process");
+                                    firebaseRef.set(1);
+                                }
+                            </script>
+                            <div class="col-sm-12"><span id="a">Test</span></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        Don't close this page if program working not sussess
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="myModal2"><!--mode2 -->
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Quick Sterilization</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="rm()"></button>
+                    </div>
+                    <div class="modal-body">
+                        <br><br><br>
+                        <div class="row">
+                            <script>
+                                function rm() {
+                                    var firebaseRef = firebase.database().ref().child("stae");
+                                    firebaseRef.set(0);
+                                    var firebaseRef = firebase.database().ref().child("process");
+                                    firebaseRef.set(0);
+                                }
+                                function c_sess_2() {
+                                    var firebaseRef = firebase.database().ref().child("stae");
+                                    firebaseRef.set(2);
+                                    var firebaseRef = firebase.database().ref().child("process");
+                                    firebaseRef.set(1);
+                                }
+                            </script>
+                            <div class="col-sm-12"><span id="b"></span></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        Don't close this page if program working not sussess
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="myModal3"><!-- mode3 -->
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">FULL OPTION</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="rm()"></button>
+                    </div>
+                    <div class="modal-body">
+                        <br><br><br>
+                        <div class="row">
+                            <script>
+                                function rm() {
+                                    var firebaseRef = firebase.database().ref().child("stae");
+                                    firebaseRef.set(0);
+                                    var firebaseRef = firebase.database().ref().child("process");
+                                    firebaseRef.set(0);
+                                }
+                                function c_sess_3() {
+                                    var firebaseRef = firebase.database().ref().child("stae");
+                                    firebaseRef.set(3);
+                                    var firebaseRef = firebase.database().ref().child("process");
+                                    firebaseRef.set(1);
+                                }
+                            </script>
+                                <div class="col-sm-12"><span id="c"></span></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        Don't close this page if program working not sussess
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var test1 = document.getElementById("hmd");
+            var db_refState = firebase.database().ref().child("state");
+            db_refState.on("value", sanp => {
+                test1.innerText = sanp.val()["humd"].toFixed(2);
+            });
+            var test2 = document.getElementById("tmp");
+            var db_refState = firebase.database().ref().child("state");
+            db_refState.on("value", sanp => {
+                test2.innerText = sanp.val()["temp"].toFixed(2);
+            });
+            var mac1 = document.getElementById("a");
+            var db_refState = firebase.database().ref().child("p_status");
+            db_refState.on("value", sanp => {
+                mac1.innerText = sanp.val();
+            });
+            var mac2 = document.getElementById("b");
+            var db_refState = firebase.database().ref().child("p_status");
+            db_refState.on("value", sanp => {
+                mac2.innerText = sanp.val();
+            });
+            var mac3 = document.getElementById("c");
+            var db_refState = firebase.database().ref().child("p_status");
+            db_refState.on("value", sanp => {
+                mac3.innerText = sanp.val();
+            });
+        </script>
+
+    </div>
+</body>
+
+</html>
